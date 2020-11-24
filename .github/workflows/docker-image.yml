@@ -2,10 +2,11 @@ name: Docker Image CI
 
 on:
   workflow_run:
-    workflows: ["build-scala"]
+    workflows: ["Build artifact"]
     branches: [master]
-    types:
+    types: 
       - completed
+      - requested
 
 jobs:
 
