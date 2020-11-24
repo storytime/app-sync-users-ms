@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Pull
+    - name: Pull repo
       uses: actions/checkout@v2
             
     - name: Cache build files
@@ -30,8 +30,8 @@ jobs:
       with:
         java-version: 11
     
-    - name: Run test
-      run: sbt clean test
+    - name: Run build 
+      run: sbt clean test dist
       env:
         UPDATE_DB: ${{ secrets.UPDATE_DB }}
         APP_USER_SECRET: ${{ secrets.APP_USER_SECRET }}
