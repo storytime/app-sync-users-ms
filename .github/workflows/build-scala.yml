@@ -38,4 +38,12 @@ jobs:
         DB_LOCATION_USER: ${{ secrets.DB_LOCATION_USER }}
         POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        
+    - name: Uploading artifact
+      uses: actions/checkout@v2
+  
+    - uses: actions/upload-artifact@v2
+      with:
+        name: app-sync-users-ms-0.1.zip
+        path: /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-0.1.zip
       
