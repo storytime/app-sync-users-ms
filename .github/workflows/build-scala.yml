@@ -55,10 +55,15 @@ jobs:
       with:
         name: app-sync-users-ms-latest.zip
 
+    - name: Install Composer Dependencies
+      run: |
+         ls -l /home/runner/work/app-sync-users-ms
+         ls -l /home/runner/work/app-sync-users-ms/app-sync-users-ms
+ 
     - name: Decompress
       uses: TonyBogdanov/zip@1.0
       with:
-        args: unzip -qq ./app-sync-users-ms-latest.zip -d ./app
+        args: unzip -qq /home/runner/work/app-sync-users-ms/app-sync-users-ms/app-sync-users-ms-latest.zip -d ./app
           
           
           
