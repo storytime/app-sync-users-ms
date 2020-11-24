@@ -1,0 +1,120 @@
+<configuration debug="false" scan="true" scanPeriod="60 seconds">
+
+  <conversionRule conversionWord="clr"
+                  converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+  <conversionRule conversionWord="wex"
+                  converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+  <conversionRule conversionWord="wEx"
+                  converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+  <property name="CONSOLE_LOG_PATTERN"
+            value="%clr(%d{HH:mm:ss.SSS}){faint} %clr(%5p) %clr([%20.20t]){faint} %clr(%-24.24logger{25}){cyan} %clr(-){faint} %m%n%wEx"/>
+  <property name="FILE_LOG_PATTERN"
+            value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr([%15.15t]){faint} %clr(%-24.24logger{25}){cyan} %clr(-){faint} %m%n%wEx"/>
+  <property name="HTTP_WIRE_LOG_PATTERN"
+            value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr([%15.15t]){faint} %clr(%-24.24logger{25}){cyan} %clr(-){faint} %m%n%wEx"/>
+
+  <property name="MAIN_LOG_FILE" value="logs/pb.integration.log"/>
+  <property name="HTTP_WIRE_LOG_FILE" value="logs/http.wire.log"/>
+  <property name="ERROR_LOG_FILE" value="logs/error.log"/>
+  <property name="MAX_LOG_SIZE" value="512MB"/>
+  <property name="TOTAL_CAP_SIZE" value="1GB"/>
+  <property name="MAX_HISTORY_SIZE" value="12"/>
+
+
+  <!-- appenders -->
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="Main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${MAIN_LOG_FILE}</file>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${MAIN_LOG_FILE}-%d{yyyy-MM}.%i.gz</fileNamePattern>
+      <maxFileSize>${MAX_LOG_SIZE}</maxFileSize>
+      <totalSizeCap>${TOTAL_CAP_SIZE}</totalSizeCap>
+      <maxHistory>${MAX_HISTORY_SIZE}</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <appender name="AppError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${ERROR_LOG_FILE}</file>
+    <encoder>
+      <pattern>${FILE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${ERROR_LOG_FILE}-%d{yyyy-MM}.%i.gz</fileNamePattern>
+      <maxFileSize>${MAX_LOG_SIZE}</maxFileSize>
+      <totalSizeCap>${TOTAL_CAP_SIZE}</totalSizeCap>
+      <maxHistory>${MAX_HISTORY_SIZE}</maxHistory>
+    </rollingPolicy>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>ERROR</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+  </appender>
+
+  <appender name="HttpWireLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${HTTP_WIRE_LOG_FILE}</file>
+    <encoder>
+      <pattern>${HTTP_WIRE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${HTTP_WIRE_LOG_FILE}-%d{yyyy-MM}.%i.gz</fileNamePattern>
+      <maxFileSize>${MAX_LOG_SIZE}</maxFileSize>
+      <totalSizeCap>${TOTAL_CAP_SIZE}</totalSizeCap>
+      <maxHistory>${MAX_HISTORY_SIZE}</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <!-- categories -->
+  <!--spring boot default categories-->
+  <logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR"/>
+  <logger name="org.apache.catalina.util.LifecycleBase" level="ERROR"/>
+  <logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN"/>
+  <logger name="org.apache.sshd.common.util.SecurityUtils" level="WARN"/>
+  <logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN"/>
+  <logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR"/>
+  <logger name="org.hibernate.validator.internal.util.Version" level="WARN"/>
+
+  <root level="WARN">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="Main"/>
+  </root>
+
+  <logger additivity="false" name="org.springframework.web" level="WARN">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="Main"/>
+  </logger>
+
+  <logger additivity="false" name="ch.qos" level="ERROR">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="Main"/>
+  </logger>
+
+  <logger additivity="false" name="com.github.storytime.other" level="DEBUG">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="Main"/>
+  </logger>
+
+  <logger additivity="false" name="org.hibernate" level="WARN">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="Main"/>
+  </logger>
+
+  <logger additivity="false" name="com.github.storytime" level="DEBUG">
+    <appender-ref ref="Console"/>
+    <appender-ref ref="Main"/>
+    <appender-ref ref="AppError"/>
+  </logger>
+
+  <logger additivity="false" name="http.wire-log" level="TRACE">
+    <appender-ref ref="HttpWireLog"/>
+  </logger>
+</configuration>

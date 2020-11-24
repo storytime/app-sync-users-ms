@@ -1,0 +1,52 @@
+<configuration debug="false" scan="true" scanPeriod="10 seconds">
+
+    <conversionRule conversionWord="coloredLevel" converterClass="play.api.libs.logback.ColoredLevel"/>
+    <property name="MAIN_LOG_FILE" value="logs/users-ms.log"/>
+    <property name="MAX_LOG_SIZE" value="32MB"/>
+    <property name="TOTAL_CAP_SIZE" value="128MB"/>
+    <property name="MAX_HISTORY_SIZE" value="12"/>
+
+    <property name="FILE_LOG_PATTERN" value="%d{MM-dd HH:mm:ss.SSS} %5p [%35.35t] %-25.25logger{25} - %m%n"/>
+
+    <appender name="MAIN_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MAIN_LOG_FILE}</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${MAIN_LOG_FILE}-%d{yyyy-MM}.%i.gz</fileNamePattern>
+            <maxFileSize>${MAX_LOG_SIZE}</maxFileSize>
+            <totalSizeCap>${TOTAL_CAP_SIZE}</totalSizeCap>
+            <maxHistory>${MAX_HISTORY_SIZE}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_MAIN_LOG" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="MAIN_LOG"/>
+    </appender>
+
+    <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <logger name="com.github.storytime" level="DEBUG"/>
+    <logger name="play" level="WARN"/>
+    <logger name="application" level="WARN"/>
+    <logger name="play.api.http.EnabledFilters" level="WARN"/>
+    <logger name="com.avaje" level="OFF"/>
+    <logger name="ch.qos.logback" level="OFF"/>
+    <logger name="com.gargoylesoftware" level="OFF"/>
+    <logger name="com.zaxxer" level="OFF"/>
+
+    <root level="INFO">
+        <appender-ref ref="ASYNC_MAIN_LOG"/>
+        <appender-ref ref="ASYNC_CONSOLE"/>
+    </root>
+
+</configuration>

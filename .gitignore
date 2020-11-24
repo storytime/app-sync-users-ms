@@ -1,0 +1,40 @@
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle.properties
+app.env
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+out/
+1.json
+1.xml
+2.json
+application.log
+logs/
+.shelf/
+
+/variables.env
+3.json
+.idea/
+.target/
+.logs/
