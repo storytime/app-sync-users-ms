@@ -1,4 +1,0 @@
-[error] /Users/bo/TMP/play-samples/play-scala-slick-example/app/com/github/storytime/dao/AppUserDao.scala:18:80: identifier expected but ')' found.
-[error]   def getAllAppUsers: Future[Seq[AppUser]] = db.run(getAllAppUsersQuery.result.)
-[error]                                                                                ^
-[error] one error found

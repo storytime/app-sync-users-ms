@@ -1,7 +1,0 @@
-[debug] Copy resource mappings: 
-[debug] 	(/Users/bo/IdeaProjects/app-sync-users-ms/conf/logback.xml,/Users/bo/IdeaProjects/app-sync-users-ms/target/scala-2.13/classes/logback.xml)
-[debug] 	(/Users/bo/IdeaProjects/app-sync-users-ms/conf/logback-backup.xml,/Users/bo/IdeaProjects/app-sync-users-ms/target/scala-2.13/classes/logback-backup.xml)
-[debug] 	(/Users/bo/IdeaProjects/app-sync-users-ms/conf/application.conf,/Users/bo/IdeaProjects/app-sync-users-ms/target/scala-2.13/classes/application.conf)
-[debug] 	(/Users/bo/IdeaProjects/app-sync-users-ms/conf/routes,/Users/bo/IdeaProjects/app-sync-users-ms/target/scala-2.13/classes/routes)
-[debug] 	(/Users/bo/IdeaProjects/app-sync-users-ms/conf/evolutions/default/2.sql,/Users/bo/IdeaProjects/app-sync-users-ms/target/scala-2.13/classes/evolutions/default/2.sql)
-[debug] 	(/Users/bo/IdeaProjects/app-sync-users-ms/conf/evolutions/default/1.sql,/Users/bo/IdeaProjects/app-sync-users-ms/target/scala-2.13/classes/evolutions/default/1.sql)
