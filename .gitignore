@@ -39,3 +39,5 @@ logs/
 .target/
 .logs/
 target
+project/project
+project/target
