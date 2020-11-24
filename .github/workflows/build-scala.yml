@@ -21,7 +21,7 @@ jobs:
         path: | 
           ~/.ivy2/cache
           ~/.sbt
-        key: ${{ runner.os }}-sbt-${{ hashFiles('**/build.sbt') }}
+        key: sbt-${{ hashFiles('**/build.sbt') }}
         restore-keys: |
               ${{ runner.os }}-maven-
     
