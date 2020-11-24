@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     - name: Pull repo
       uses: actions/checkout@v2
             
@@ -46,8 +47,20 @@ jobs:
   build_image:
     runs-on: ubuntu-latest
     needs: build_packages
+    
     steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: app-sync-users-ms-latest.zip
+    
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: app-sync-users-ms-latest.zip
+
+    - name: Decompress
+      uses: TonyBogdanov/zip@1.0
+      with:
+        args: unzip -qq ./app-sync-users-ms-latest.zip -d ./app
+          
+          
+          
+          
+          
