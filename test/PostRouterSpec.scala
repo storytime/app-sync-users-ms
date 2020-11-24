@@ -14,7 +14,7 @@
 //      val request = FakeRequest(GET, "/users").withCSRFToken
 //      val home = route(app, request).get
 //
-//      val posts: Seq[AppUser] AppUser = Json.fromJson[Seq[AppUser]](contentAsJson(home)).get
+//      val posts: Seq[AppUser] = Json.fromJson[Seq[AppUser]](contentAsJson(home)).get
 //      println(posts.size)
 //    }
 //  }
