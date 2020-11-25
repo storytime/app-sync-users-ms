@@ -92,4 +92,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-          tags: user/app:latest
+          tags: bobobo/app-sync-users-ms:latest
