@@ -54,10 +54,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: app-sync-users-ms-latest.zip
-
-    - name: Install Composer Dependencies
-      run: |
-         ls -lh /home/runner/work/app-sync-users-ms/app-sync-users-ms/app-sync-users-ms-0.1.zip
+    
+    - name: List of files
+      run: ls -Rlh
  
     - name: Decompress
       uses: TonyBogdanov/zip@1.0
