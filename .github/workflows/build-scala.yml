@@ -74,7 +74,7 @@ jobs:
         run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
 
       - name: List of files
-        run: ls -Rlh
+        run: ls -lh
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
