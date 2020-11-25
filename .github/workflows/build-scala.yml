@@ -57,7 +57,7 @@ jobs:
 
     - name: Install Composer Dependencies
       run: |
-         ls -l /home/runner/work/app-sync-users-ms/app-sync-users-ms
+         ls -lh /home/runner/work/app-sync-users-ms/app-sync-users-ms/app-sync-users-ms-0.1.zip
  
     - name: Decompress
       uses: TonyBogdanov/zip@1.0
