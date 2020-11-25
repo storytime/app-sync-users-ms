@@ -65,4 +65,7 @@ jobs:
       - name: Uzip packages
         uses: montudor/action-zip@v0.1.1
         with:
-          args: unzip -qq app-sync-users-ms-latest.zip -d dir
+          args: unzip -qq app-sync-users-ms-latest.zip -d ~/app-sync-users-ms-latest-dir
+
+      - name: List of files
+        run: ls -Rlh
