@@ -58,8 +58,8 @@ jobs:
         with:
           ref: master
 
-      - name: Move build
-        run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
+      #      - name: Move build
+      #        run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
 
       - name: Download artifact
         uses: actions/download-artifact@v2
