@@ -42,7 +42,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: app-sync-users-ms-latest.zip
-        path: /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-*.zip
+        path: /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-0.1.zip
 
   build_image:
     runs-on: ubuntu-latest
