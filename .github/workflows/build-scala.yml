@@ -67,6 +67,12 @@ jobs:
         with:
           args: unzip -qq app-sync-users-ms-latest.zip -d app-sync-users-ms-latest-dir
 
+      - name: Pull repo
+        uses: actions/checkout@v2
+
+      - name: Move build
+        run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
+
       - name: List of files
         run: ls -Rlh
 
