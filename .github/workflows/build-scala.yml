@@ -62,7 +62,7 @@ jobs:
     - name: Decompress
       uses: TonyBogdanov/zip@1.0
       with:
-        args: unzip -qq /home/runner/work/app-sync-users-ms/app-sync-users-ms/app-sync-users-ms-latest.zip -d ./app
+        args: unzip -qq /home/runner/work/app-sync-users-ms/app-sync-users-ms/app-sync-users-ms-0.1.zip -d ./app
           
           
           
