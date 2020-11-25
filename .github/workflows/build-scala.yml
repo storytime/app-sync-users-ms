@@ -66,6 +66,8 @@ jobs:
 
       - name: Pull repo
         uses: actions/checkout@v2
+        with:
+          ref: master
 
       - name: Move build
         run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
