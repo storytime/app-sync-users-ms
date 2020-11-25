@@ -53,6 +53,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Pull repo
+        uses: actions/checkout@v2
+          with:
+            ref: master
+
+      - name: Move build
+        run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
 
       - name: Download artifact
         uses: actions/download-artifact@v2
@@ -63,14 +70,6 @@ jobs:
         uses: montudor/action-zip@v0.1.1
         with:
           args: unzip -qq app-sync-users-ms-latest.zip -d app-sync-users-ms-latest-dir
-
-      - name: Pull repo
-        uses: actions/checkout@v2
-        with:
-          ref: master
-
-      - name: Move build
-        run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/Dockefile  Dockefile
 
       - name: List of files
         run: ls -lh
