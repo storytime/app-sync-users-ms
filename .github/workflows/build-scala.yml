@@ -40,12 +40,12 @@ jobs:
         POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
     - name: Move build
-      run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-0.1.zip ${HOME}/app-sync-users-ms-latest.zip
+      run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-0.1.zip  ~/app-sync-users-ms-latest.zip
 
     - uses: actions/upload-artifact@v2
       with:
         name: app-sync-users-ms-latest.zip
-        path: ${HOME}/app-sync-users-ms-latest.zip
+        path: ~/app-sync-users-ms-latest.zip
 
   build_image:
     runs-on: ubuntu-latest
