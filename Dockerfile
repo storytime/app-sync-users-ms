@@ -10,7 +10,7 @@ RUN groupadd -g ${id} -r ${aUser} && useradd -u ${id} -r -g ${aUser} -d /home/${
 WORKDIR /home/${aUser}
 
 COPY app-sync-users-ms-latest-dir/* /home/${aUser}
-CMD mkdir -p /home/${aUser}/logs
+RUN mkdir -p /home/${aUser}/logs
 RUN chown -R ${aUser}:${aUser} /home/${aUser}
 
 RUN ls -laRh /home/${aUser}
