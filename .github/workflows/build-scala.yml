@@ -7,11 +7,11 @@ on:
     branches: [ master ]
 
 jobs:
+  # build packages
   build_packages:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Pull repo
         uses: actions/checkout@v2
 
@@ -43,14 +43,15 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
       - name: Move build
-      run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-0.1.zip  ~/app-sync-users-ms-latest.zip
+        run: mv /home/runner/work/app-sync-users-ms/app-sync-users-ms/target/universal/app-sync-users-ms-0.1.zip  ~/app-sync-users-ms-latest.zip
 
-    - name: Uploading build
-      uses: actions/upload-artifact@v2
-      with:
-        name: app-sync-users-ms-latest.zip
-        path: ~/app-sync-users-ms-latest.zip
+      - name: Uploading build
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-sync-users-ms-latest.zip
+          path: ~/app-sync-users-ms-latest.zip
 
+  # build and push image
   build_image:
     needs: build_packages
     runs-on: ubuntu-latest
