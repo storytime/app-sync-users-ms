@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+
+  app-sync-users-ms:
+    image: bobobo/app-sync-users-ms:latest
+    env_file:
+      - ./variables.env
+    ports:
+      - 10090:9000
+    logging:
+      driver: json-file
+    volumes:
+      - app-sync-users-ms-log-vol:/home/app/logs
+    depends_on:
+      - postgres
+    networks:
+      - backend
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          memory: 64MB
+      restart_policy:
+        condition: on-failure
+
+#PLEASE NOTE!  dirs for volumes must be created
+volumes:
+  app-sync-users-ms-log-vol:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/appuser/app-sync-users-ms/logs
+      o: bind
+
+networks:
+  backend:

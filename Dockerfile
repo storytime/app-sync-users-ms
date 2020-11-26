@@ -11,9 +11,9 @@ WORKDIR /home/${aUser}
 
 COPY app-sync-users-ms-latest-dir/ /home/${aUser}
 CMD mkdir -p /home/${aUser}/logs
-RUN chown -R ${aUser}:${aUser} /home/${aUser}/*
+RUN chown -R ${aUser}:${aUser} /home/${aUser}
 
 USER ${aUser}:${aUser}
-CMD chmod +x home/app/bin/app-sync-users-ms
+CMD chmod +x /home/${aUser}/bin/app-sync-users-ms
 CMD java -version
 CMD /home/${aUser}/bin/app-sync-users-ms
