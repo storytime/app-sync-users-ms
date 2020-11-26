@@ -98,4 +98,4 @@ jobs:
           push: true
           tags: |
             bobobo/app-sync-users-ms:latest
-            bobobo/app-sync-users-ms:1
+            bobobo/app-sync-users-ms:$GITHUB_RUN_NUMBER
