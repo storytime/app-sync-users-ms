@@ -96,6 +96,6 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags:
+          tags: |
             bobobo/app-sync-users-ms:latest
             bobobo/app-sync-users-ms:1
