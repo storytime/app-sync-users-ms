@@ -33,7 +33,7 @@ application.log
 logs/
 .shelf/
 
-/variables.env
+/app-sync-users-ms-variables.env
 3.json
 .idea/
 .target/
