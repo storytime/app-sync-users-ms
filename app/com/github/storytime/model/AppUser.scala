@@ -5,7 +5,7 @@ import play.api.libs.json._
 case class AppUser(id: Option[Long] = None,
                    zenAuthToken: String,
                    timeZone: String,
-                   zenLastSyncTimestamp: Int,
+                   zenLastSyncTimestamp: Long,
                    ynabAuthToken: String = "",
                    ynabSyncEnabled: Boolean = false)
 

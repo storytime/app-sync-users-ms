@@ -16,4 +16,5 @@ trait AppUserQueries extends AppUserComponent {
 
   def getAppUsersByIdQuery(id: Long): Query[AppUserTableDefinition, AppUser, Seq] = AppUserTable.filter(_.id === id)
 
+  def updateQuery(user: AppUser) = AppUserTable.insertOrUpdate(user)
 }

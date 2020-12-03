@@ -19,4 +19,5 @@ class AppUserDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvide
 
   def getAppUserById(id: Long): Future[Option[AppUser]] = db.run(getAppUsersByIdQuery(id).result.headOption)
 
+  def update(user: AppUser): Future[Int] = db.run(updateQuery(user))
 }

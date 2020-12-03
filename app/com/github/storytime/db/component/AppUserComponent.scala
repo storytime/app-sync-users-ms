@@ -28,7 +28,7 @@ trait AppUserComponent {
 
     def timeZone = column[String]("time_zone")
 
-    def zenLastSyncTimestamp = column[Int]("zen_last_sync_timestamp")
+    def zenLastSyncTimestamp = column[Long]("zen_last_sync_timestamp")
 
     def ynabAuthToken = column[String]("ynab_auth_token")
 
