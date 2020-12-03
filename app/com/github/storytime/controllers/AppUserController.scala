@@ -1,13 +1,13 @@
 package com.github.storytime.controllers
 
 import com.github.storytime.dao.AppUserDao
-import javax.inject.{Inject, Singleton}
+import com.github.storytime.utils.ClassLazyLogger
+import com.google.inject.internal.util.Stopwatch
 import play.api.http.MimeTypes
 import play.api.libs.json.Json
 import play.api.mvc._
-import com.github.storytime.utils.ClassLazyLogger
-import com.google.inject.internal.util.Stopwatch
 
+import javax.inject.{Inject, Singleton}
 import scala.concurrent.ExecutionContext
 
 @Singleton
