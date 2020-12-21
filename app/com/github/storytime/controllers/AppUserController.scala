@@ -18,6 +18,7 @@ class AppUserController @Inject()(appUserDao: AppUserDao,
     with ClassLazyLogger {
 
   private val DEFAULT_ID_FOR_LOGS = -1L;
+  private val SAVED_COUNT = 1;
 
   def getAllAppUsers: Action[AnyContent] = Action.async { implicit request =>
     val sw = new Stopwatch()
@@ -50,7 +51,7 @@ class AppUserController @Inject()(appUserDao: AppUserDao,
     LOGGER.debug(s"Saving user id: [$id] ...")
 
     appUserDao.update(appUser).map {
-      case 1 =>
+      case SAVED_COUNT =>
         LOGGER.debug(s"Saved user by id: [$id] - success, time: [${sw.reset()}] ms")
         Ok
       case _ =>
