@@ -1,3 +1,4 @@
 GET        /users               com.github.storytime.controllers.AppUserController.getAllAppUsers()
 GET        /user/:userId        com.github.storytime.controllers.AppUserController.getAppUserById(userId: Long)
 PUT        /user                com.github.storytime.controllers.AppUserController.updateUser()
+GET        /health              com.github.storytime.controllers.HealthCheckController.getHealth()
