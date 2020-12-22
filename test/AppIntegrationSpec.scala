@@ -10,7 +10,7 @@ class AppIntegrationSpec extends Specification {
   "Application" should {
 
     "1. send req to wrong resource" in new WithApplication {
-      route(app, FakeRequest(GET, "/blablabla")) must beSome.which(status(_) == NOT_FOUND)
+      route(app, FakeRequest(GET, "/blablabla")) must beSome.which(status(_) == INTERNAL_SERVER_ERROR)
     }
   }
 
