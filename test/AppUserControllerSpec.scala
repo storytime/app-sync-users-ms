@@ -89,7 +89,6 @@ class AppUserControllerSpec extends PlaySpec with MockitoSugar {
       intercept[Exception](contentAsJson(response).as[AppUser])
     }
 
-
     "7. update can save user valid" in {
       when(mockedAppUsersDao.update(validUser)).thenReturn(Future(UPDATED_COUNT));
       val response = getController.updateUser().apply(FakeRequest().withJsonBody(Json.toJson(validUser)))
